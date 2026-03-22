@@ -4,9 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jess Pinili</title>
+  <link rel="icon" type="image/png" href="./images/JP-logo.png" />
+  <link rel="apple-touch-icon" href="./images/JP-logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after {
       box-sizing: border-box;
@@ -15,18 +17,18 @@
     }
 
     body {
-      background-color: #630000;
+      background: radial-gradient(ellipse at top, #810100 0%, #630000 60%, #3a0000 100%);
       min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: flex-start;
-      padding: 32px 16px 48px;
+      padding: 40px 16px 56px;
       font-family: 'Outfit', sans-serif;
     }
 
     .container {
       width: 100%;
-      max-width: 400px;
+      max-width: 480px;
     }
 
     /* ── Profile ── */
@@ -69,12 +71,31 @@
       letter-spacing: 0.5px;
     }
 
-    .profile-tagline {
-      font-size: 13px;
+    .profile-tagline-line1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 18px;
+      font-weight: 500;
+      color: #EDEBDD;
+      margin-top: 6px;
+    }
+
+    .profile-tagline-line2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 11px;
       font-weight: 300;
-      color: rgba(242, 242, 242, 0.75);
+      letter-spacing: 1.5px;
+      color: rgba(237, 235, 221, 0.6);
       margin-top: 4px;
-      letter-spacing: 0.2px;
+      text-transform: uppercase;
+    }
+
+    /* ── Content panel ── */
+    .content-panel {
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 16px;
+      padding: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
     }
 
     /* ── Toggle ── */
@@ -139,20 +160,26 @@
       display: block;
     }
 
-    /* ── Cards ── */
+    /* ── Cards (shared) ── */
     .card {
       background-color: #f2f2f2;
       border-radius: 14px;
       overflow: hidden;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
       text-decoration: none;
       display: block;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
       transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .card:last-child {
+      margin-bottom: 0;
     }
 
     .card:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
     }
 
     .card:active {
@@ -226,8 +253,7 @@
     .icon-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-bottom: 12px;
+      gap: 14px;
     }
 
     .icon-card {
@@ -240,12 +266,14 @@
       padding: 18px 12px;
       text-decoration: none;
       gap: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
       transition: transform 0.15s ease, box-shadow 0.15s ease;
     }
 
     .icon-card:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
     }
 
     .icon-card:active {
@@ -270,11 +298,12 @@
     .shop-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 10px;
+      gap: 14px;
     }
 
     .shop-featured {
       grid-column: 1 / -1;
+      margin-bottom: 0;
     }
 
     /* Featured card (full-width, image left) */
@@ -311,19 +340,21 @@
     .shop-card {
       display: flex;
       flex-direction: column;
+      margin-bottom: 0;
     }
 
     .shop-card-img {
       width: 100%;
-      aspect-ratio: 1 / 1;
-      background-color: #d4c0c0;
+      height: auto;
+      aspect-ratio: 16 / 9;
       overflow: hidden;
+      background: #1a0a0a;
     }
 
     .shop-card-img img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       display: block;
     }
 
@@ -359,107 +390,113 @@
       <span class="profile-avatar-initials">JP</span>
     </div>
     <div class="profile-name">Jess Pinili</div>
-    <div class="profile-tagline">Business strategy + subconscious reprogramming</div>
+    <div class="profile-tagline-line1">Hey I'm Jess!</div>
+    <div class="profile-tagline-line2">Business Strategist | Mindset Coach</div>
   </div>
 
-  <!-- Toggle -->
-  <div class="toggle-wrap">
-    <div class="toggle" id="toggle">
-      <div class="toggle-pill" id="togglePill"></div>
-      <button class="toggle-btn active" data-tab="links" id="btnLinks">Links</button>
-      <button class="toggle-btn" data-tab="shop" id="btnShop">Shop</button>
-    </div>
-  </div>
+  <!-- Content panel -->
+  <div class="content-panel">
 
-  <!-- Links Tab -->
-  <div class="tab-panel active" id="tab-links">
-
-    <!-- Hero card 1: WMHQ -->
-    <a class="card hero-card" href="https://www.womanmasteryhq.com" target="_blank" rel="noopener noreferrer">
-      <div class="hero-card-img">
-        <img src="./images/wmhq.png" alt="Woman Mastery HQ" onerror="this.style.display='none'" />
+    <!-- Toggle -->
+    <div class="toggle-wrap">
+      <div class="toggle" id="toggle">
+        <div class="toggle-pill" id="togglePill"></div>
+        <button class="toggle-btn active" data-tab="links" id="btnLinks">Links</button>
+        <button class="toggle-btn" data-tab="shop" id="btnShop">Shop</button>
       </div>
-      <div class="hero-card-body">
-        <span class="badge">12 Month Access</span>
-        <div class="card-title">Woman Mastery HQ</div>
-        <div class="card-subtitle">Strategy + subconscious. Build your business through every season of life.</div>
-      </div>
-    </a>
-
-    <!-- Hero card 2: Think Like A CEO -->
-    <a class="card hero-card" href="https://www.jessicapinili.com/thinklike-aceo-masterclass" target="_blank" rel="noopener noreferrer">
-      <div class="hero-card-img">
-        <img src="./images/think-like-a-ceo.png" alt="Think Like A CEO" onerror="this.style.display='none'" />
-      </div>
-      <div class="hero-card-body">
-        <span class="badge badge-red">Free Masterclass</span>
-        <div class="card-title">Think Like A CEO</div>
-        <div class="card-subtitle">Monetise momentum in 2 phases without adding to your to-do list.</div>
-      </div>
-    </a>
-
-    <!-- Icon row: YouTube + Podcast -->
-    <div class="icon-row">
-      <a class="icon-card" href="https://www.youtube.com/@jesspinili" target="_blank" rel="noopener noreferrer">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/>
-          <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/>
-        </svg>
-        <span class="icon-card-label">YouTube</span>
-      </a>
-      <a class="icon-card" href="https://open.spotify.com/show/0dVGnR2Yoh3BhNO1CE7umD" target="_blank" rel="noopener noreferrer">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/>
-          <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
-          <line x1="12" y1="19" x2="12" y2="23"/>
-          <line x1="8" y1="23" x2="16" y2="23"/>
-        </svg>
-        <span class="icon-card-label">The Jessica Pinili Podcast</span>
-      </a>
     </div>
 
-  </div>
+    <!-- Links Tab -->
+    <div class="tab-panel active" id="tab-links">
 
-  <!-- Shop Tab -->
-  <div class="tab-panel" id="tab-shop">
-    <div class="shop-grid">
-
-      <!-- Featured full-width: WMHQ -->
-      <a class="card featured-card shop-featured" href="https://www.womanmasteryhq.com" target="_blank" rel="noopener noreferrer">
-        <div class="featured-card-img">
+      <!-- Hero card 1: WMHQ -->
+      <a class="card hero-card" href="https://www.womanmasteryhq.com" target="_blank" rel="noopener noreferrer">
+        <div class="hero-card-img">
           <img src="./images/wmhq.png" alt="Woman Mastery HQ" onerror="this.style.display='none'" />
         </div>
-        <div class="featured-card-body">
-          <span class="badge">Membership</span>
+        <div class="hero-card-body">
+          <span class="badge">12 Month Access</span>
           <div class="card-title">Woman Mastery HQ</div>
-          <div class="card-subtitle">Monthly · Annual</div>
+          <div class="card-subtitle">Strategy + subconscious. Build your business through every season of life.</div>
         </div>
       </a>
 
-      <!-- Half-width: Seen in Seasons -->
-      <a class="card shop-card" href="https://jessica-pinili.mykajabi.com/seen-in-seasons-workshop" target="_blank" rel="noopener noreferrer">
-        <div class="shop-card-img">
-          <img src="./images/seen-in-seasons.png" alt="Seen in Season Workshop" onerror="this.style.display='none'" />
+      <!-- Hero card 2: Think Like A CEO -->
+      <a class="card hero-card" href="https://www.jessicapinili.com/thinklike-aceo-masterclass" target="_blank" rel="noopener noreferrer">
+        <div class="hero-card-img">
+          <img src="./images/think-like-a-ceo.png" alt="Think Like A CEO" onerror="this.style.display='none'" />
         </div>
-        <div class="shop-card-body">
-          <div class="shop-card-title">Seen in Season Workshop</div>
-          <div class="shop-card-price">$47 AUD</div>
+        <div class="hero-card-body">
+          <span class="badge badge-red">Free Masterclass</span>
+          <div class="card-title">Think Like A CEO</div>
+          <div class="card-subtitle">Monetise momentum in 2 phases without adding to your to-do list.</div>
         </div>
       </a>
 
-      <!-- Half-width: Unmuted -->
-      <a class="card shop-card" href="https://www.jessicapinili.com/unmuted-contentdashboard-jesspinili" target="_blank" rel="noopener noreferrer">
-        <div class="shop-card-img">
-          <img src="./images/unmuted.png" alt="Unmuted Content Dashboard" onerror="this.style.display='none'" />
-        </div>
-        <div class="shop-card-body">
-          <div class="shop-card-title">Unmuted Content Dashboard</div>
-          <div class="shop-card-price">$7 AUD</div>
-        </div>
-      </a>
+      <!-- Icon row: YouTube + Podcast -->
+      <div class="icon-row">
+        <a class="icon-card" href="https://www.youtube.com/@jesspinili" target="_blank" rel="noopener noreferrer">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/>
+            <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/>
+          </svg>
+          <span class="icon-card-label">YouTube</span>
+        </a>
+        <a class="icon-card" href="https://open.spotify.com/show/0dVGnR2Yoh3BhNO1CE7umD" target="_blank" rel="noopener noreferrer">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/>
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+            <line x1="12" y1="19" x2="12" y2="23"/>
+            <line x1="8" y1="23" x2="16" y2="23"/>
+          </svg>
+          <span class="icon-card-label">The Jessica Pinili Podcast</span>
+        </a>
+      </div>
 
     </div>
-  </div>
+
+    <!-- Shop Tab -->
+    <div class="tab-panel" id="tab-shop">
+      <div class="shop-grid">
+
+        <!-- Featured full-width: WMHQ -->
+        <a class="card featured-card shop-featured" href="https://www.womanmasteryhq.com" target="_blank" rel="noopener noreferrer">
+          <div class="featured-card-img">
+            <img src="./images/wmhq.png" alt="Woman Mastery HQ" onerror="this.style.display='none'" />
+          </div>
+          <div class="featured-card-body">
+            <span class="badge">Membership</span>
+            <div class="card-title">Woman Mastery HQ</div>
+            <div class="card-subtitle">Monthly · Annual</div>
+          </div>
+        </a>
+
+        <!-- Half-width: Seen in Seasons -->
+        <a class="card shop-card" href="https://jessica-pinili.mykajabi.com/seen-in-seasons-workshop" target="_blank" rel="noopener noreferrer">
+          <div class="shop-card-img">
+            <img src="./images/seen-in-seasons.png" alt="Seen in Season Workshop" onerror="this.style.display='none'" />
+          </div>
+          <div class="shop-card-body">
+            <div class="shop-card-title">Seen in Season Workshop</div>
+            <div class="shop-card-price">$47 AUD</div>
+          </div>
+        </a>
+
+        <!-- Half-width: Unmuted -->
+        <a class="card shop-card" href="https://www.jessicapinili.com/unmuted-contentdashboard-jesspinili" target="_blank" rel="noopener noreferrer">
+          <div class="shop-card-img">
+            <img src="./images/unmuted.png" alt="Unmuted Content Dashboard" onerror="this.style.display='none'" />
+          </div>
+          <div class="shop-card-body">
+            <div class="shop-card-title">Unmuted Content Dashboard</div>
+            <div class="shop-card-price">$7 AUD</div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+  </div><!-- /content-panel -->
 
 </div>
 
