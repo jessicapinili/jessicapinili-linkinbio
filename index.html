@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <style>html { font-size: 16px; }</style>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jess Pinili</title>
   <link rel="icon" type="image/png" href="./images/JP-logo.png" />
@@ -28,7 +29,7 @@
 
     .container {
       width: 100%;
-      max-width: 480px;
+      max-width: 600px;
     }
 
     /* ── Profile ── */
@@ -38,8 +39,8 @@
     }
 
     .profile-avatar {
-      width: 72px;
-      height: 72px;
+      width: 100px;
+      height: 100px;
       border-radius: 50%;
       background-color: #9e6060;
       margin: 0 auto 12px;
@@ -47,17 +48,21 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      border: 2px solid rgba(237, 235, 221, 0.3);
+      position: relative;
     }
 
     .profile-avatar img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center;
+      display: block;
     }
 
     .profile-avatar-initials {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 28px;
+      font-size: 32px;
       font-weight: 600;
       color: #f2f2f2;
       letter-spacing: 1px;
@@ -65,7 +70,7 @@
 
     .profile-name {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 26px;
+      font-size: 28px;
       font-weight: 700;
       color: #f2f2f2;
       letter-spacing: 0.5px;
@@ -74,7 +79,7 @@
     .profile-tagline-line1 {
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
-      font-size: 18px;
+      font-size: 20px;
       font-weight: 500;
       color: #EDEBDD;
       margin-top: 6px;
@@ -82,7 +87,7 @@
 
     .profile-tagline-line2 {
       font-family: 'Outfit', sans-serif;
-      font-size: 11px;
+      font-size: 13px;
       font-weight: 300;
       letter-spacing: 1.5px;
       color: rgba(237, 235, 221, 0.6);
@@ -94,7 +99,7 @@
     .content-panel {
       background: rgba(0, 0, 0, 0.2);
       border-radius: 16px;
-      padding: 24px;
+      padding: 28px;
       border: 1px solid rgba(255, 255, 255, 0.06);
     }
 
@@ -110,17 +115,17 @@
       display: flex;
       background-color: #9e6060;
       border-radius: 999px;
-      padding: 4px;
+      padding: 6px;
       gap: 0;
-      width: 200px;
+      width: 260px;
     }
 
     .toggle-pill {
       position: absolute;
-      top: 4px;
-      left: 4px;
-      width: calc(50% - 4px);
-      height: calc(100% - 8px);
+      top: 6px;
+      left: 6px;
+      width: calc(50% - 6px);
+      height: calc(100% - 12px);
       background-color: #111111;
       border-radius: 999px;
       transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -140,7 +145,7 @@
       cursor: pointer;
       padding: 8px 0;
       font-family: 'Outfit', sans-serif;
-      font-size: 13px;
+      font-size: 15px;
       font-weight: 500;
       border-radius: 999px;
       transition: color 0.25s;
@@ -165,7 +170,7 @@
       background-color: #f2f2f2;
       border-radius: 14px;
       overflow: hidden;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
       text-decoration: none;
       display: block;
       border: 1px solid rgba(255, 255, 255, 0.1);
@@ -194,8 +199,8 @@
     }
 
     .hero-card-img {
-      width: 90px;
-      min-width: 90px;
+      width: 100px;
+      min-width: 100px;
       background-color: #d4c0c0;
       overflow: hidden;
       flex-shrink: 0;
@@ -218,7 +223,7 @@
 
     .badge {
       display: inline-block;
-      font-size: 10px;
+      font-size: 11px;
       font-weight: 600;
       letter-spacing: 0.5px;
       text-transform: uppercase;
@@ -236,14 +241,14 @@
 
     .card-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 17px;
+      font-size: 18px;
       font-weight: 700;
       color: #111111;
       line-height: 1.2;
     }
 
     .card-subtitle {
-      font-size: 11.5px;
+      font-size: 13px;
       font-weight: 300;
       color: rgba(30, 10, 10, 0.65);
       line-height: 1.4;
@@ -253,7 +258,7 @@
     .icon-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 14px;
+      gap: 16px;
     }
 
     .icon-card {
@@ -263,7 +268,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 18px 12px;
+      padding: 20px 16px;
       text-decoration: none;
       gap: 8px;
       border: 1px solid rgba(255, 255, 255, 0.1);
@@ -281,13 +286,13 @@
     }
 
     .icon-card svg {
-      width: 28px;
-      height: 28px;
+      width: 40px;
+      height: 40px;
       color: #630000;
     }
 
     .icon-card-label {
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 500;
       color: #111111;
       text-align: center;
@@ -298,7 +303,7 @@
     .shop-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 14px;
+      gap: 16px;
     }
 
     .shop-featured {
@@ -345,8 +350,7 @@
 
     .shop-card-img {
       width: 100%;
-      height: auto;
-      aspect-ratio: 16 / 9;
+      height: 160px;
       overflow: hidden;
       background: #1a0a0a;
     }
@@ -387,7 +391,8 @@
   <!-- Profile -->
   <div class="profile">
     <div class="profile-avatar">
-      <span class="profile-avatar-initials">JP</span>
+      <img src="./images/jesspinili-pic.png" alt="Jess Pinili" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+      <span class="profile-avatar-initials" style="display:none">JP</span>
     </div>
     <div class="profile-name">Jess Pinili</div>
     <div class="profile-tagline-line1">Hey I'm Jess!</div>
@@ -417,7 +422,7 @@
         <div class="hero-card-body">
           <span class="badge">12 Month Access</span>
           <div class="card-title">Woman Mastery HQ</div>
-          <div class="card-subtitle">Strategy + subconscious. Build your business through every season of life.</div>
+          <div class="card-subtitle">For female entrepreneurs to build consistent $20K+ months and reprogram subconscious patterns that sabotage growth.</div>
         </div>
       </a>
 
